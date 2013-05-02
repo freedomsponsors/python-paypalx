@@ -90,7 +90,10 @@ class AdaptiveAPI(object):
             print endpoint
         
         def device_ip():
-            return socket.gethostbyname(socket.gethostname())
+            try:
+                return socket.gethostbyname(socket.gethostname())
+            except:
+                return '127.0.0.1'
         
         headers = {
             'X-PAYPAL-SECURITY-USERID': self.username,
